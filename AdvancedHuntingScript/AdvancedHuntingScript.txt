@@ -1,0 +1,7 @@
+//List devices running operating systems older than Windows 10
+DeviceTvmSoftwareVulnerabilities
+| where DeviceName startswith "abc" and VulnerabilitySeverityLevel startswith "Critical" 
+or DeviceName startswith "efg" and VulnerabilitySeverityLevel startswith "High"
+or DeviceName startswith "anada2" and VulnerabilitySeverityLevel startswith "Critical"
+or DeviceName startswith "anada2" and VulnerabilitySeverityLevel startswith "High"
+| summarize by DeviceName, OSPlatform, CveId , SoftwareName , SoftwareVersion , SoftwareVendor , VulnerabilitySeverityLevel , RecommendedSecurityUpdate , RecommendedSecurityUpdateId 

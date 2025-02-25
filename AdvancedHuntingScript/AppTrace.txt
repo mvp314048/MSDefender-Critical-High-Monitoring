@@ -1,0 +1,8 @@
+//List devices running operating systems older than Windows 10
+DeviceTvmSoftwareVulnerabilities
+| where DeviceName endswith "123.com"
+or DeviceName startswith "il-"
+or DeviceName startswith "anada3"
+or DeviceName endswith "bit.com"
+| where VulnerabilitySeverityLevel startswith "Critical" or VulnerabilitySeverityLevel startswith "High"
+| summarize count () by SoftwareName
